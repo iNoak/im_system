@@ -35,3 +35,8 @@ Use `nc` to test:
 nc 127.0.0.1 8888
 Hi, guys!
 ```
+
+# v4 - Integrate the user logic
+> In fact, the `Server.Handler()` comprises the tasks: **user online*, *user offline*, *user message*. These task is user-specific, and we should package them to the `User`. That's what we'll do in this section.
+
+We added three method to `User`: `User.Online()`, `User.Offline()`, `User.DoMessage()`
