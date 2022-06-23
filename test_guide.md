@@ -37,6 +37,19 @@ Hi, guys!
 ```
 
 # v4 - Integrate the user logic
-> In fact, the `Server.Handler()` comprises the tasks: **user online*, *user offline*, *user message*. These task is user-specific, and we should package them to the `User`. That's what we'll do in this section.
+> In fact, the `Server.Handler()` comprises the tasks: *user online*, *user offline*, *user message*. These task is user-specific, and we should package them to the `User`. That's what we'll do in this section.
 
-We added three method to `User`: `User.Online()`, `User.Offline()`, `User.DoMessage()`
+We added three methods to `User`: `User.Online()`, `User.Offline()`, `User.DoMessage()`
+
+# v5 - Query online users
+> Now, User can use 'who' command to query who is online.
+
+Build:
+```
+go build -o server main.go server.go user.go
+```
+Test:
+```
+nc 127.0.0.1 8888
+who
+```
