@@ -10,10 +10,6 @@ nc 127.0.0.1 8888
 ```
 
 # v2 - user on line and broadcasting
-Build:
-```
-go build -o server main.go server.go user.go
-```
 Start a new ternimal to be on line:
 ```
 nc 127.0.0.1 8888
@@ -26,10 +22,6 @@ the output should be:
 # v3 - user broadcast message
 > Now, user can input the message and broadcast it.
 
-Build:
-```
-go build -o server main.go server.go user.go
-```
 Use `nc` to test:
 ```
 nc 127.0.0.1 8888
@@ -44,10 +36,6 @@ We added three methods to `User`: `User.Online()`, `User.Offline()`, `User.DoMes
 # v5 - Query online users
 >  Now, User can use 'who' command to query who is online.
 
-Build:
-```
-go build -o server main.go server.go user.go
-```
 Test:
 ```
 nc 127.0.0.1 8888
@@ -57,12 +45,15 @@ who
 > Now, user can change his name with input `rename|newUsername`.
 
 
-Build:
-```
-go build -o server main.go server.go user.go
-```
 Test:
 ```
 nc 127.0.0.1 8888
 rename|Jack
 ```
+
+# v7 - Timeout
+> If a user is not live ( don't send any message ) for some certain time, he will be kicked out and the connection will be closed.
+
+We use a channel to simulate the timer.
+
+
