@@ -42,7 +42,7 @@ Hi, guys!
 We added three methods to `User`: `User.Online()`, `User.Offline()`, `User.DoMessage()`
 
 # v5 - Query online users
-> Now, User can use 'who' command to query who is online.
+>  Now, User can use 'who' command to query who is online.
 
 Build:
 ```
@@ -52,4 +52,17 @@ Test:
 ```
 nc 127.0.0.1 8888
 who
+```
+# v6 - Change user name
+> Now, user can change his name with input `rename|newUsername`.
+
+
+Build:
+```
+go build -o server main.go server.go user.go
+```
+Test:
+```
+nc 127.0.0.1 8888
+rename|Jack
 ```
