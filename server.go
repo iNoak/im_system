@@ -79,7 +79,7 @@ func (this *Server) Handler(conn net.Conn) {
 		select {
 		case <-isLive:
 			// the user is live, reset the timer
-		case <-time.After(time.Second * 10):
+		case <-time.After(time.Second * 100):
 			// time out , kick out
 			user.SendMsg("you are kicked out!\n")
 			close(user.C)

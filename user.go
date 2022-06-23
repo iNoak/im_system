@@ -81,6 +81,25 @@ func (this *User) DoMessage(msg string) {
 			this.Name = newName
 			this.SendMsg("Change username succeed: '" + newName + "'\n")
 		}
+	} else if len(msg) > 4 && msg[:3] == "to|" {
+		// to|who|message
+		who := strings.Split(msg, "|")[1]
+		if who == "" {
+			this.SendMsg("unknown format!\n")
+			return
+		}
+		user, ok := this.server.OnlineMap[who]
+		if !ok {
+			this.SendMsg("the user is not online!\n")
+			return
+		}
+		content := strings.Split(msg, "|")[2]
+		if content == "" {
+			this.SendMsg("empty message!\n")
+			return
+		}
+		user.SendMsg(this.Name + " said: " + content + "\n")
+
 	} else {
 		this.server.BroadCast(this, msg)
 
