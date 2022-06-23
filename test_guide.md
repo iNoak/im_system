@@ -58,3 +58,10 @@ We use a channel to simulate the timer.
 
 
 # v8 - Private chat
+> User can send the private messasge to specified user, through the command `to|username|message`.
+
+Test:
+```
+to|jack|hi, Jack!
+```
+Note that the specified user must be online. 
